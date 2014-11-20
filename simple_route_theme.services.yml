@@ -1,0 +1,6 @@
+services:
+  simple_route_theme_controller_subscriber:
+    class: Drupal\simple_route_theme\EventSubscriber\ContentThemeControllerSubscriber
+    parent: container.trait
+    tags:
+      - { name: event_subscriber }

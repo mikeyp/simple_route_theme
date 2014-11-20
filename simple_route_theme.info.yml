@@ -1,0 +1,4 @@
+name: Simple Route Theme
+description: Allows routes to specify a theme function
+core: 8.x
+type: module
