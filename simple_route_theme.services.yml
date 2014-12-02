@@ -1,6 +1,5 @@
 services:
-  simple_route_theme_controller_subscriber:
-    class: Drupal\simple_route_theme\EventSubscriber\ContentThemeControllerSubscriber
-    parent: container.trait
+  route_enhancer.simple_route_theme:
+    class: Drupal\simple_route_theme\Enhancer\ContentThemeEnhancer
     tags:
-      - { name: event_subscriber }
+      - { name: route_enhancer }

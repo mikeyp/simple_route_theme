@@ -10,35 +10,16 @@ use Symfony\Component\HttpFoundation\Request;
 class ContentThemeController {
 
   /**
-   * The theme hook to use to build the output.
-   *
-   * @var string
+   * Return the rendered output.
    */
-  protected $themeHook;
-
-  /**
-   * The request service.
-   *
-   * @var \Symfony\Component\HttpFoundation\Request;
-   */
-  protected $request;
-
-  /**
-   * Constructs a new ContentThemeController.
-   *
-   * @param string $theme_hook
-   *   The theme hook to use for generating the content.
-   * @param \Symfony\Component\HttpFoundation\Request $request
-   *   The request.
-   */
-  function __construct($theme_hook) {
-    $this->themeHook = $theme_hook;
+  public function getContentResult(Request $request) {
+    return array('#theme' => $this->getThemeArgument($request));
   }
 
   /**
-   * Return the rendered output.
+   * Get the theme hook argument from the request.
    */
-  function getContent() {
-    return array('#theme' => $this->themeHook);
+  protected function getThemeArgument(Request $request) {
+    return $request->attributes->get('_theme');
   }
 }
